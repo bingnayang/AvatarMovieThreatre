@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="cast")
+@Table(name="writer")
 public class Writer {
 	// Define Fields
 	@Id
