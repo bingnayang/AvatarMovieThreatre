@@ -1,10 +1,14 @@
 package com.threatre.AvatarMovieThreatre.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.threatre.AvatarMovieThreatre.entity.Movie;
 import com.threatre.AvatarMovieThreatre.service.MovieService;
 
 @RestController
@@ -16,6 +20,12 @@ public class MovieRESTController {
 	@Autowired
 	public MovieRESTController(MovieService movieService) {
 		this.movieService = movieService;
+	}
+	
+	// GET "/movie" - return list of movies
+	@GetMapping("/movies")
+	public List<Movie> findAllMuseum(){
+		return movieService.getAllMovieList();
 	}
 	
 }
