@@ -1,4 +1,6 @@
 package com.threatre.AvatarMovieThreatre.entity;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,6 +37,24 @@ public class Movie {
 	@Column(name="rating")
 	private String rating;
 	
+	// OneToMany and JoinColumn
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="movie_id")
+	private List<Genre> genreList;
+	
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="movie_id")
+	private List<Cast> castList;
+	
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="movie_id")
+	private List<Director> directorName;
+	
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="movie_id")
+	private List<Writer> writerName;
+	
+	// Constructor
 	public Movie() {}
 
 	public Movie(String title, String summary, String releaseDate, String runTime, String rating) {
@@ -45,6 +65,7 @@ public class Movie {
 		this.rating = rating;
 	}
 
+	// Setter/Getter
 	public int getId() {
 		return id;
 	}
@@ -92,5 +113,36 @@ public class Movie {
 	public void setRating(String rating) {
 		this.rating = rating;
 	}
-	
+
+	public List<Genre> getGenreList() {
+		return genreList;
+	}
+
+	public void setGenreList(List<Genre> genreList) {
+		this.genreList = genreList;
+	}
+
+	public List<Cast> getCastList() {
+		return castList;
+	}
+
+	public void setCastList(List<Cast> castList) {
+		this.castList = castList;
+	}
+
+	public List<Director> getDirectorName() {
+		return directorName;
+	}
+
+	public void setDirectorName(List<Director> directorName) {
+		this.directorName = directorName;
+	}
+
+	public List<Writer> getWriterName() {
+		return writerName;
+	}
+
+	public void setWriterName(List<Writer> writerName) {
+		this.writerName = writerName;
+	}
 }
