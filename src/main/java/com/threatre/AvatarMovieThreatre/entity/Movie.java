@@ -37,6 +37,9 @@ public class Movie {
 	@Column(name="rating")
 	private String rating;
 	
+	@Column(name="poster_url")
+	private String posterURL;
+	
 	// OneToMany and JoinColumn
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="movie_id")
@@ -57,12 +60,13 @@ public class Movie {
 	// Constructor
 	public Movie() {}
 
-	public Movie(String title, String summary, String releaseDate, String runTime, String rating) {
+	public Movie(String title, String summary, String releaseDate, String runTime, String rating, String posterURL) {
 		this.title = title;
 		this.summary = summary;
 		this.releaseDate = releaseDate;
 		this.runTime = runTime;
 		this.rating = rating;
+		this.posterURL = posterURL;
 	}
 
 	// Setter/Getter
@@ -112,6 +116,14 @@ public class Movie {
 
 	public void setRating(String rating) {
 		this.rating = rating;
+	}
+	
+	public String getPosterURL() {
+		return posterURL;
+	}
+
+	public void setPosterURL(String posterURL) {
+		this.posterURL = posterURL;
 	}
 
 	public List<Genre> getGenreList() {
