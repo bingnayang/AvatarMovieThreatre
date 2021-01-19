@@ -35,5 +35,16 @@ public class MovieDAOImplement implements MovieDAO {
 		// Return the result
 		return movieList;
 	}
+
+	@Override
+	public Movie getMovieById(int movieId) {
+		// Get the current hibernate session
+		Session currentSession = entityManager.unwrap(Session.class);
+		
+		Movie theMovie = currentSession.get(Movie.class, movieId);
+		
+		// Return the result
+		return theMovie;
+	}
 	
 }

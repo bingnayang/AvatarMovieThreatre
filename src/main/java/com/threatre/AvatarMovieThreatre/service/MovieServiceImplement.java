@@ -23,5 +23,11 @@ public class MovieServiceImplement implements MovieService{
 	public List<Movie> getAllMovieList() {
 		return movieDAO.getAllMovieList();
 	}
+
+	@Override
+	@Transactional
+	public Movie getMovieById(int movieId) {
+		return movieDAO.getMovieById(movieId);
+	}
 	
 }
