@@ -25,7 +25,7 @@ public class MovieRESTController {
 	
 	// GET "/movie" - return list of movies
 	@GetMapping("/movies")
-	public List<Movie> findAllMuseum(){
+	public List<Movie> findAllMovie(){
 		return movieService.getAllMovieList();
 	}
 	
