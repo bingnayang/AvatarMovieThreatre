@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -56,6 +57,10 @@ public class Movie {
 	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
 	@JoinColumn(name="movie_id")
 	private List<Writer> writerName;
+	
+	@OneToMany(fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	@JoinColumn(name="movie_id")
+	private List<Showtime> showTime;
 	
 	// Constructor
 	public Movie() {}
@@ -157,4 +162,13 @@ public class Movie {
 	public void setWriterName(List<Writer> writerName) {
 		this.writerName = writerName;
 	}
+
+	public List<Showtime> getShowTime() {
+		return showTime;
+	}
+
+	public void setShowTime(List<Showtime> showTime) {
+		this.showTime = showTime;
+	}
+	
 }
