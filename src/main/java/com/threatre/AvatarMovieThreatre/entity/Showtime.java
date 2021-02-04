@@ -22,13 +22,17 @@ public class Showtime {
 	
 	@Column(name="start_time")
 	private String startTime;
-
+	
+	@Column(name="auditorium")
+	private String auditorium;
+		
 	// Define Constructors
 	public Showtime() {}
 	
-	public Showtime(String showDate, String startTime) {
+	public Showtime(String showDate, String startTime, String auditorium) {
 		this.showDate = showDate;
 		this.startTime = startTime;
+		this.auditorium = auditorium;
 	}
 
 	// Define Setter/Getter
@@ -54,6 +58,14 @@ public class Showtime {
 
 	public void setStartTime(String startTime) {
 		this.startTime = startTime;
+	}
+
+	public String getAuditorium() {
+		return auditorium;
+	}
+
+	public void setAuditorium(String auditorium) {
+		this.auditorium = auditorium;
 	}
 	
 }
