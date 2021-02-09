@@ -17,6 +17,9 @@ public class Showtime {
 	@Column(name="id")
 	private int id;
 	
+	@Column(name="movie_id")
+	private int movie_id;
+	
 	@Column(name="show_date")
 	private String showDate;
 	
@@ -29,10 +32,11 @@ public class Showtime {
 	// Define Constructors
 	public Showtime() {}
 	
-	public Showtime(String showDate, String startTime, String auditorium) {
+	public Showtime(String showDate, String startTime, String auditorium, int movie_id) {
 		this.showDate = showDate;
 		this.startTime = startTime;
 		this.auditorium = auditorium;
+		this.movie_id = movie_id;
 	}
 
 	// Define Setter/Getter
@@ -66,6 +70,14 @@ public class Showtime {
 
 	public void setAuditorium(String auditorium) {
 		this.auditorium = auditorium;
+	}
+
+	public int getMovie_id() {
+		return movie_id;
+	}
+
+	public void setMovie_id(int movie_id) {
+		this.movie_id = movie_id;
 	}
 	
 }
