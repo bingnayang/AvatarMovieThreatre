@@ -28,15 +28,28 @@ public class Showtime {
 	
 	@Column(name="auditorium")
 	private String auditorium;
+	
+	@Column(name="adult_price")
+	private double adultPrice;
+	
+	@Column(name="senior_price")
+	private double seniorPrice;
+	
+	@Column(name="child_price")
+	private double childPrice;
 		
 	// Define Constructors
 	public Showtime() {}
 	
-	public Showtime(String showDate, String startTime, String auditorium, int movie_id) {
+	public Showtime(int movie_id, String showDate, String startTime, String auditorium, double adultPrice,
+			double seniorPrice, double childPrice) {
+		this.movie_id = movie_id;
 		this.showDate = showDate;
 		this.startTime = startTime;
 		this.auditorium = auditorium;
-		this.movie_id = movie_id;
+		this.adultPrice = adultPrice;
+		this.seniorPrice = seniorPrice;
+		this.childPrice = childPrice;
 	}
 
 	// Define Setter/Getter
@@ -78,6 +91,30 @@ public class Showtime {
 
 	public void setMovie_id(int movie_id) {
 		this.movie_id = movie_id;
+	}
+
+	public double getAdultPrice() {
+		return adultPrice;
+	}
+
+	public void setAdultPrice(double adultPrice) {
+		this.adultPrice = adultPrice;
+	}
+
+	public double getSeniorPrice() {
+		return seniorPrice;
+	}
+
+	public void setSeniorPrice(double seniorPrice) {
+		this.seniorPrice = seniorPrice;
+	}
+
+	public double getChildPrice() {
+		return childPrice;
+	}
+
+	public void setChildPrice(double childPrice) {
+		this.childPrice = childPrice;
 	}
 	
 }
